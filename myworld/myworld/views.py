@@ -1,16 +1,8 @@
 from django.shortcuts import render
+from .models import movie
 
-data = {
-    "name": [
-        {
-            "name": "ongback",
-            "year": 2024,
-        },
-        {"name": "jetri", "year": 2025},
-        {"name": "badboys", "year": 2024},
-    ]
-}
+data = movie.objects.all()
 
 
 def movies(request):
-    return render(request, "movies/movies.html", data)
+    return render(request, "movies/movies.html", {"name": data})
