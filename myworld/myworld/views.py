@@ -1,9 +1,16 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
+data = {
+    "name": [
+        {
+            "name": "ongback",
+            "year": 2024,
+        },
+        {"name": "jetri", "year": 2025},
+        {"name": "badboys", "year": 2024},
+    ]
+}
 
 
-def members(request):
-    return HttpResponse("Hello world!")
-
-
-def home(request):
-    return HttpResponse("homepage")
+def movies(request):
+    return render(request, "movies/movies.html", data)
